@@ -1,0 +1,2 @@
+joint_for_arm:moveit:moveit_ikfast:rucobot_moveit:rviz_objects
+-DCATKIN_DEVEL_PREFIX=/home/user/rucobot/devel -DCMAKE_INSTALL_PREFIX=/home/user/rucobot/install -G Unix Makefiles

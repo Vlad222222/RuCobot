@@ -1,0 +1,8 @@
+prefix=/home/user/rucobot/install
+
+Name: rucobot_moveit
+Description: Description of rucobot_moveit
+Version: 0.3.0
+Cflags: 
+Libs: -L/home/user/rucobot/install/lib 
+Requires: 

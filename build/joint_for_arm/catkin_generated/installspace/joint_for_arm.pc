@@ -1,0 +1,8 @@
+prefix=/home/user/rucobot/install
+
+Name: joint_for_arm
+Description: Description of joint_for_arm
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/user/rucobot/install/lib 
+Requires: 

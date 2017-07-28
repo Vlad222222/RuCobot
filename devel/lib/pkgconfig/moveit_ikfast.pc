@@ -1,0 +1,8 @@
+prefix=/home/user/rucobot/devel
+
+Name: moveit_ikfast
+Description: Description of moveit_ikfast
+Version: 3.1.0
+Cflags: 
+Libs: -L/home/user/rucobot/devel/lib 
+Requires: 
