@@ -1,0 +1,63 @@
+controller_list:
+  - name: fake_left_arm_controller
+    joints:
+      - j_sharnir_plecha_l
+      - j_plecho_l
+      - j_lokot_l
+      - j_sharnir_loktya_l
+      - j_predplechie_l
+      - j_zapastie_l
+      - j_ladon_l
+  - name: fake_right_arm_controller
+    joints:
+      - j_sharnir_plecha_r
+      - j_plecho_r
+      - j_lokot_r
+      - j_sharnir_loktya_r
+      - j_predplechie_r
+      - j_zapastie_r
+      - j_ladon_r
+  - name: fake_right_gripper_controller
+    joints:
+      - j_bolshoj_osnova_r
+      - j_proximal_falang_bolshoj_r
+      - j_medial_falanga_bolshoy_r
+      - j_distal_falang_bolshoy_r
+      - j_sharnir_palec_bezim_r
+      - j_proximal_falang_bezim_r
+      - j_medial_falanga_bezim_r
+      - j_distal_falanga_bezim_r
+      - j_sharnir_palec_miz_r
+      - j_proximal_falang_miz_r
+      - j_medial_falanga_miz_r
+      - j_distal_falanga_miz_r
+      - j_sharnir_palec_sred_r
+      - j_proximal_falang_sred_r
+      - j_medial_falanga_sred_r
+      - j_distal_falanga_sred_r
+      - j_sharnir_palec_ukaz_r
+      - j_proximal_falanga_ukaz_r
+      - j_medial_falanga_ukaz_r
+      - j_distal_falanga_ukaz_r
+  - name: fake_left_gripper_controller
+    joints:
+      - j_bolshoj_osnova_l
+      - j_proximal_falang_bolshoj_l
+      - j_medial_falanga_bolshoj_l
+      - j_distal_falang_bolshoy_l
+      - j_sharnir_palec_bezim_l
+      - j_proximal_falang_bezim_l
+      - j_medial_falanga_bezim_l
+      - j_distal_falanga_bezim_l
+      - j_sharnir_palec_miz_l
+      - j_proximal_falang_miz_l
+      - j_medial_falanga_miz_l
+      - j_distal_falanga_miz_l
+      - j_sharnir_palec_sred_l
+      - j_proximal_falang_sred_l
+      - j_medial_falanga_sred_l
+      - j_distal_falanga_sred_l
+      - j_sharnir_palec_ukaz_l
+      - j_proximal_falang_ukaz_l
+      - j_medial_falanga_ukaz_l
+      - j_distal_falanga_ukaz_l

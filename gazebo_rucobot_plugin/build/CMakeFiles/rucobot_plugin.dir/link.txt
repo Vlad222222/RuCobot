@@ -1,0 +1,1 @@
+/usr/bin/g++  -fPIC  -std=c++11  -shared -Wl,-soname,librucobot_plugin.so -o librucobot_plugin.so CMakeFiles/rucobot_plugin.dir/rucobot_plugin.cc.o  -L/usr/lib/x86_64-linux-gnu/gazebo-7/plugins 

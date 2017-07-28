@@ -1,0 +1,1718 @@
+<robot name="rucobot">
+
+ <gazebo>
+  <plugin name="gazebo_ros_control" filename="/home/user/gazebo_set_joint_values/build/libvelodyne_plugin.so">
+    <robotNamespace>/rucobot</robotNamespace>
+  </plugin>
+</gazebo>
+
+<link name="world" />
+<joint name="world_joint"  type="fixed">
+    <origin xyz="0 0 1.0" rpy="0 0 0" />
+    <parent link="world"/>
+    <child link="base_link"/>
+</joint>
+
+  <link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00896240562713546 0.143186728221046 -0.0666263036048991" />
+      <mass value="110.693325289998" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="Sharnir_pojasa">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-2.25514051876985E-17 0.0752881183526605 -4.16333634234434E-17" />
+      <mass value="2.89543871345231" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/Sharnir_pojasa.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/Sharnir_pojasa.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_Sharnir_pojasa" type="continuous">
+    <origin rpy="1.38421395302276 0.0519209406376816 -0.118124034255159" xyz="0.0324436639883371 0.12429534174066 0.460919751635306" />
+    <parent link="base_link" />
+    <child link="Sharnir_pojasa" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="Tors">
+    <inertial>
+      <origin rpy="0 0 0" xyz="7.47907391487196E-07 0.255052816813798 -3.41754965509367E-05" />
+      <mass value="91.0754857328118" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/Tors.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/Tors.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_Tors" type="continuous">
+    <origin rpy="-0.128015279653219 1.62370117351429E-15 1.72431513512095E-15" xyz="0 0.128188778698563 0" />
+    <parent link="Sharnir_pojasa" />
+    <child link="Tors" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sharnir_plecha_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.55111512312578E-17 -0.000417919871589234 0.0464830429041732" />
+      <mass value="0.483647848803237" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_plecha_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_plecha_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_plecha_r" type="continuous">
+    <origin rpy="1.5707963267949 -1.20891824044153 -1.5707963267949" xyz="-0.152559658277971 0.390000000000005 0" />
+    <parent link="Tors" />
+    <child link="sharnir_plecha_r" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="plecho_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-3.57087203139983E-08 -0.0251544798237647 5.104894745811E-08" />
+      <mass value="2.34279641012503" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/plecho_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/plecho_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_plecho_r" type="continuous">
+    <origin rpy="-1.57079632679491 1.25964358109242 -1.57079632679491" xyz="0 -0.0079999999999999 0.0934403417220299" />
+    <parent link="sharnir_plecha_r" />
+    <child link="plecho_r" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="lokot_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-6.79035919437521E-08 -0.156514593189435 -1.94538884668027E-07" />
+      <mass value="2.01481430087266" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/lokot_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/lokot_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_lokot_r" type="continuous">
+    <origin rpy="-4.72451924255783E-17 1.27265955777084 4.72451924255783E-17" xyz="0 -0.082274948812524 0" />
+    <parent link="plecho_r" />
+    <child link="lokot_r" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="sharnir_loktya_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0012000000000002 0.00752035460033429 -0.0437637690424815" />
+      <mass value="0.413649568915566" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_loktya_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_loktya_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_loktya_r" type="continuous">
+    <origin rpy="2.11707742464578 -1.57079630572147 1.18530245986557" xyz="0 -0.219725051187477 0" />
+    <parent link="lokot_r" />
+    <child link="sharnir_loktya_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="predplechie_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-1.7798515558054E-06 -3.95550856513438E-08 0.0351725822698449" />
+      <mass value="1.44692785130132" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/predplechie_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/predplechie_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_predplechie_r" type="continuous">
+    <origin rpy="3.14159265358979 -1.11022302462516E-15 -0.53391242034869" xyz="0.00119999999999998 0.00799999999999995 -0.133508449810852" />
+    <parent link="sharnir_loktya_r" />
+    <child link="predplechie_r" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="zapastie_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-1.04664132916099E-09 -0.00589607999069064 -1.04964131830698E-09" />
+      <mass value="0.0217508242970435" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/zapastie_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/zapastie_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_zapastie_r" type="continuous">
+    <origin rpy="-1.57079632679489 0.440819351327512 -1.57079632679489" xyz="0 0 0.156491550189148" />
+    <parent link="predplechie_r" />
+    <child link="zapastie_r" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="ladon_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-6.47388532412085E-05 0.0148875426551344 -0.0600543658421324" />
+      <mass value="1.08106591463832" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/ladon_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/ladon_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_ladon_r" type="continuous">
+    <origin rpy="9.15512301598293E-15 1.54957284180814 1.57079632679491" xyz="0.01 0 0" />
+    <parent link="zapastie_r" />
+    <child link="ladon_r" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="bolshoj_osnova_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="4.19799951745237E-10 -0.00335807108592345 -0.0130909322427476" />
+      <mass value="0.00474130036735066" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/bolshoj_osnova_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/bolshoj_osnova_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_bolshoj_osnova_r" type="continuous">
+    <origin rpy="-0.538307860312293 0.724748995496491 2.40837849957916" xyz="-0.0286581524376238 -0.0091182634575131 -0.034153456124651" />
+    <parent link="ladon_r" />
+    <child link="bolshoj_osnova_r" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="proximal_falang_bolshoj_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.23938518520728E-06 -5.2210677090922E-05 -0.0239061195962711" />
+      <mass value="0.0127054069053591" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_bolshoj_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_bolshoj_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falang_bolshoj_r" type="continuous">
+    <origin rpy="-1.53541465104474 3.21964677141295E-15 -3.14159265358979" xyz="0 -0.00450030689800585 -0.0119955807398704" />
+    <parent link="bolshoj_osnova_r" />
+    <child link="proximal_falang_bolshoj_r" />
+    <axis xyz="-1 0 0" />
+  </joint>
+  <link name="medial_falanga_bolshoy_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="6.55384677013954E-06 0.000130045033781889 -0.0119984514335008" />
+      <mass value="0.00791977216682233" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_bolshoy_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_bolshoy_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_bolshoy_r" type="continuous">
+    <origin rpy="1.36758612535518 2.77555756156289E-15 -3.77475828372553E-15" xyz="0 0 -0.046" />
+    <parent link="proximal_falang_bolshoj_r" />
+    <child link="medial_falanga_bolshoy_r" />
+    <axis xyz="-1 0 0" />
+  </joint>
+  <link name="distal_falang_bolshoy_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="3.92154068756811E-05 0.000417281517116508 -0.0118731915217587" />
+      <mass value="0.00792541591651875" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falang_bolshoy_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falang_bolshoy_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falang_bolshoy_r" type="continuous">
+    <origin rpy="0.100089852496194 1.38777878078145E-16 4.71844785465692E-16" xyz="0 0 -0.028" />
+    <parent link="medial_falanga_bolshoy_r" />
+    <child link="distal_falang_bolshoy_r" />
+    <axis xyz="-1 0 0" />
+  </joint>
+  <link name="sharnir_palec_ukaz_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000193153382844535 0.0128827511145122 0.000976445564656314" />
+      <mass value="0.00247996543491179" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_ukaz_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_ukaz_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_palec_ukaz_r" type="continuous">
+    <origin rpy="1.05474492964217E-15 -0.00791715577020176 -6.38398246888684E-16" xyz="-0.0344897812276514 0 -0.108498873951481" />
+    <parent link="ladon_r" />
+    <child link="sharnir_palec_ukaz_r" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="proximal_falanga_ukaz_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.26035150005821E-06 -0.000891513361063051 -0.0220907411071198" />
+      <mass value="0.0127053504794185" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falanga_ukaz_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falanga_ukaz_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falanga_ukaz_r" type="continuous">
+    <origin rpy="1.1377297013671 -2.1094237467878E-15 -3.14159265358979" xyz="0 0.0100000000000001 0" />
+    <parent link="sharnir_palec_ukaz_r" />
+    <child link="proximal_falanga_ukaz_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="medial_falanga_ukaz_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="6.55522680167997E-06 0.000130046406959381 -0.0119984527242808" />
+      <mass value="0.00791977462844531" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_ukaz_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_ukaz_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_ukaz_r" type="continuous">
+    <origin rpy="0.279340232513703 -1.07899800205757E-15 -2.99760216648792E-15" xyz="0 -0.000839312590752428 -0.0441846338179298" />
+    <parent link="proximal_falanga_ukaz_r" />
+    <child link="medial_falanga_ukaz_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="distal_falanga_ukaz_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="3.92153936591699E-05 0.000417275867378497 -0.0118731930583748" />
+      <mass value="0.0079254188732141" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_ukaz_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_ukaz_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falanga_ukaz_r" type="continuous">
+    <origin rpy="0.119960369182583 1.80411241501588E-15 3.94129173741931E-15" xyz="0 0 -0.028" />
+    <parent link="medial_falanga_ukaz_r" />
+    <child link="distal_falanga_ukaz_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sharnir_palec_sred_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000193153369787091 0.012882751170144 0.000976445576276658" />
+      <mass value="0.00247996542161917" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_sred_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_sred_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_palec_sred_r" type="continuous">
+    <origin rpy="8.88179236949472E-16 -0.00135656939203248 -5.5511202309342E-16" xyz="-0.0104897812276514 0 -0.108498873951481" />
+    <parent link="ladon_r" />
+    <child link="sharnir_palec_sred_r" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="proximal_falang_sred_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.24538932972218E-06 -0.000764007871692715 -0.0220370289612765" />
+      <mass value="0.0127054003585438" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_sred_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_sred_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falang_sred_r" type="continuous">
+    <origin rpy="1.20690791788773 4.49640324973188E-15 -3.14159265358979" xyz="0 0.0099999999999999 0" />
+    <parent link="sharnir_palec_sred_r" />
+    <child link="proximal_falang_sred_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="medial_falanga_sred_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="6.55357717266325E-06 0.000130049654450709 -0.0119984510226461" />
+      <mass value="0.00791977234201001" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_sred_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_sred_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_sred_r" type="continuous">
+    <origin rpy="-0.00268212479129566 -5.55111512312578E-17 -5.55111512312578E-16" xyz="0 -0.000711821421017458 -0.0441309600687572" />
+    <parent link="proximal_falang_sred_r" />
+    <child link="medial_falanga_sred_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="distal_falanga_sred_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="3.92154219823748E-05 0.000417275965494429 -0.0118731930301309" />
+      <mass value="0.00792541888961152" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_sred_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_sred_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falanga_sred_r" type="continuous">
+    <origin rpy="0.332359663935568 -1.83880688453542E-15 5.49560397189452E-15" xyz="0 0 -0.0279999999999949" />
+    <parent link="medial_falanga_sred_r" />
+    <child link="distal_falanga_sred_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sharnir_palec_bezim_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.00019315354677002 0.0128827504574321 0.000976445416346006" />
+      <mass value="0.00247996553730472" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_bezim_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_bezim_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_palec_bezim_r" type="continuous">
+    <origin rpy="1.05894859269979E-15 -0.0894823348823763 -7.24543773952485E-16" xyz="0.0135102187723486 0 -0.104498873951481" />
+    <parent link="ladon_r" />
+    <child link="sharnir_palec_bezim_r" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="proximal_falang_bezim_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00166311725820534 0.00355963129049373 -0.0228313156496764" />
+      <mass value="0.0127054241473309" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_bezim_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_bezim_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falang_bezim_r" type="continuous">
+    <origin rpy="1.28157692527836 -1.88737914186277E-15 -3.14159265358979" xyz="0.00166836028512618 0.0119999999999999 -0.00376831251385637" />
+    <parent link="sharnir_palec_bezim_r" />
+    <child link="proximal_falang_bezim_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="medial_falanga_bezim_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000102111063495225 0.0102908853869345 -0.0120727140350391" />
+      <mass value="0.00791977341401348" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_bezim_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_bezim_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_bezim_r" type="continuous">
+    <origin rpy="0.0645518450447267 1.36002320516582E-15 2.66453525910038E-15" xyz="0.00157280438069707 -0.00653266306270058 -0.0455065995179739" />
+    <parent link="proximal_falang_bezim_r" />
+    <child link="medial_falanga_bezim_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="distal_falanga_bezim_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000214544039056352 0.00839367616821542 -0.0136113780165271" />
+      <mass value="0.00792541904402243" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_bezim_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_bezim_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falanga_bezim_r" type="continuous">
+    <origin rpy="0.196447738566652 -5.55111512312578E-17 6.10622663543836E-16" xyz="0.00034931539619254 0.00199858256054334 -0.027926396948097" />
+    <parent link="medial_falanga_bezim_r" />
+    <child link="distal_falanga_bezim_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sharnir_palec_miz_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000193153411590707 0.0128827509991224 0.000976445540574328" />
+      <mass value="0.00247996546169134" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_miz_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_miz_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_palec_miz_r" type="continuous">
+    <origin rpy="1.05495627598233E-15 -0.021525787722799 -7.21812188830018E-16" xyz="0.0375102187723486 0 -0.0984988739514813" />
+    <parent link="ladon_r" />
+    <child link="sharnir_palec_miz_r" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="proximal_falang_miz_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0017804668457026 0.00954535336580347 -0.0211955328218579" />
+      <mass value="0.0127054359043651" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_miz_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_miz_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falang_miz_r" type="continuous">
+    <origin rpy="1.29554718159783 -1.38777878078145E-15 -3.14159265358979" xyz="0.0017857093560632 0.0119999999999997 -0.00997291781738271" />
+    <parent link="sharnir_palec_miz_r" />
+    <child link="proximal_falang_miz_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="medial_falanga_miz_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0014620783378807 0.0138538536032017 -0.00980234066312013" />
+      <mass value="0.0079197733635432" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_miz_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_miz_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_miz_r" type="continuous">
+    <origin rpy="0.0243067503049176 -1.11022302462516E-16 -6.66133814775094E-16" xyz="0.000330185890498214 -0.00406886435696347 -0.0458185041235781" />
+    <parent link="proximal_falang_miz_r" />
+    <child link="medial_falanga_miz_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="distal_falanga_miz_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00149473888476248 0.000417275985905852 -0.0118731931278153" />
+      <mass value="0.00792541838669141" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_miz_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_miz_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falanga_miz_r" type="continuous">
+    <origin rpy="0.258336030853921 6.93889390390723E-17 6.66133814775094E-16" xyz="0 0.0137238057516697 -0.0258038888861933" />
+    <parent link="medial_falanga_miz_r" />
+    <child link="distal_falanga_miz_r" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sharnir_plecha_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.55111512312578E-17 -0.000417919871589012 0.0466532917612667" />
+      <mass value="0.483647848803235" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_plecha_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_plecha_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_plecha_l" type="continuous">
+    <origin rpy="1.57079632679489 1.39415035842739 1.57079632679489" xyz="0.152389409420877 0.390000000000005 0" />
+    <parent link="Tors" />
+    <child link="sharnir_plecha_l" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="plecho_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="3.12713754890837E-08 -0.0251544593115959 -1.26876072981119E-08" />
+      <mass value="2.34279529413064" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/plecho_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/plecho_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_plecho_l" type="continuous">
+    <origin rpy="-1.5707963267949 -1.29112786207725 1.5707963267949" xyz="0 -0.0079999999999999 0.0936105905791237" />
+    <parent link="sharnir_plecha_l" />
+    <child link="plecho_l" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="lokot_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="1.16413660572467E-07 -0.0978377204551391 -9.69470430600694E-08" />
+      <mass value="2.01481802912603" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/lokot_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/lokot_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_lokot_l" type="continuous">
+    <origin rpy="0 -1.44799988602335 2.26598202507204E-16" xyz="0 -0.140951811866513 0" />
+    <parent link="plecho_l" />
+    <child link="lokot_l" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="sharnir_loktya_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00120000000000009 0.00752035460033462 -0.0437637690424814" />
+      <mass value="0.413649568915566" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_loktya_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_loktya_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_loktya_l" type="continuous">
+    <origin rpy="1.61381909003651 1.57079631189374 -2.09329438379502" xyz="0 -0.161048188133487 0" />
+    <parent link="lokot_l" />
+    <child link="sharnir_loktya_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="predplechie_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-1.73783355866819E-06 -3.8371408273008E-08 0.0731824158750626" />
+      <mass value="1.44692799192518" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/predplechie_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/predplechie_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_predplechie_l" type="continuous">
+    <origin rpy="3.14159265358979 5.55111512312578E-17 0.330130007135906" xyz="0.00120000000000009 0.00800000000000012 -0.0954985987662796" />
+    <parent link="sharnir_loktya_l" />
+    <child link="predplechie_l" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="zapastie_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.83575854307128E-10 -0.00589608124374763 -6.12892125939624E-10" />
+      <mass value="0.0217508253802028" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/zapastie_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/zapastie_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_zapastie_l" type="continuous">
+    <origin rpy="-1.57079632679489 -0.197380460017493 1.5707963267949" xyz="0 0 0.19450140123372" />
+    <parent link="predplechie_l" />
+    <child link="zapastie_l" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="ladon_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0443630089880126 0.00488751652788033 -0.0600557871612156" />
+      <mass value="2.16213302107498" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/ladon_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/ladon_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_ladon_l" type="continuous">
+    <origin rpy="3.14159265358979 -1.56665851302964 1.5707963267949" xyz="0 0 0" />
+    <parent link="zapastie_l" />
+    <child link="ladon_l" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="bolshoj_osnova_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="1.61109600660403E-09 -0.00335807254700327 -0.0131887628307374" />
+      <mass value="0.00474130011815392" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/bolshoj_osnova_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/bolshoj_osnova_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_bolshoj_osnova_l" type="continuous">
+    <origin rpy="-0.760754668333787 -0.47903314835867 -2.02173849530472" xyz="0.0286062957588674 -0.0191182634575131 -0.0340916557414431" />
+    <parent link="ladon_l" />
+    <child link="bolshoj_osnova_l" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="proximal_falang_bolshoj_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0491416395045949 0.0112875493880561 -0.0301219393565599" />
+      <mass value="0.0127054141105419" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_bolshoj_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_bolshoj_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falang_bolshoj_l" type="continuous">
+    <origin rpy="-1.88498781502249 -7.21644966006352E-16 -3.14159265358979" xyz="0.0491468857628961 -0.013916361167838 -0.00322975923572941" />
+    <parent link="bolshoj_osnova_l" />
+    <child link="proximal_falang_bolshoj_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="medial_falanga_bolshoj_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0260751353746376 0.000130044469385804 -0.0119984512619372" />
+      <mass value="0.0079197719184545" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_bolshoj_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_bolshoj_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_bolshoj_l" type="continuous">
+    <origin rpy="0.726772177041745 1.58206781009085E-15 -1.88737914186277E-15" xyz="0.0230783039867778 0.0113397541878712 -0.052215815564381" />
+    <parent link="proximal_falang_bolshoj_l" />
+    <child link="medial_falanga_bolshoj_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="distal_falang_bolshoy_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.017988632866714 0.000417285260700173 -0.0118731882123958" />
+      <mass value="0.0079254235962375" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falang_bolshoy_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falang_bolshoy_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falang_bolshoy_l" type="continuous">
+    <origin rpy="1.4296124473884 1.16573417585641E-15 3.02535774210355E-15" xyz="0.00811916417762051 0 -0.028" />
+    <parent link="medial_falanga_bolshoj_l" />
+    <child link="distal_falang_bolshoy_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sharnir_palec_ukaz_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000193152490879867 0.0028827523153877 0.000976444726679987" />
+      <mass value="0.00247996470734577" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_ukaz_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_ukaz_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_palec_ukaz_l" type="continuous">
+    <origin rpy="-3.28829517466932E-15 -0.332097661851732 1.6147878089894E-15" xyz="0.0343629827592736 0 -0.108499957196304" />
+    <parent link="ladon_l" />
+    <child link="sharnir_palec_ukaz_l" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="proximal_falang_ukaz_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.20829184486038E-06 -0.000932800419152696 -0.0221103816501311" />
+      <mass value="0.0127053735702975" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_ukaz_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_ukaz_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falang_ukaz_l" type="continuous">
+    <origin rpy="1.11484688989119 -7.49400541621981E-16 -3.14159265358979" xyz="0 0 0" />
+    <parent link="sharnir_palec_ukaz_l" />
+    <child link="proximal_falang_ukaz_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="medial_falanga_ukaz_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="6.55491822970644E-06 -0.0188559430205998 0.000817533355310984" />
+      <mass value="0.00791977353096028" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_ukaz_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_ukaz_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_ukaz_l" type="continuous">
+    <origin rpy="0.563732607541172 -1.21777588013572E-15 1.2490009027033E-15" xyz="0 0.0220157478887349 -0.0448921690821424" />
+    <parent link="proximal_falang_ukaz_l" />
+    <child link="medial_falanga_ukaz_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="distal_falanga_ukaz_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="3.92154856411198E-05 0.000417280955288313 -0.0118731910933805" />
+      <mass value="0.00792541925435562" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_ukaz_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_ukaz_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falanga_ukaz_l" type="continuous">
+    <origin rpy="-0.11049370520446 2.63677968348475E-16 -6.93889390390723E-17" xyz="0 -0.0189859889132917 -0.0151840143881235" />
+    <parent link="medial_falanga_ukaz_l" />
+    <child link="distal_falanga_ukaz_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sharnir_palec_sred_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.00019315264391101 0.00288275232220514 0.000976444925202241" />
+      <mass value="0.0024799645866329" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_sred_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_sred_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_palec_sred_l" type="continuous">
+    <origin rpy="-3.24852540828036E-15 -0.294546077137939 1.4647369028407E-15" xyz="0.0103629827592736 0 -0.108499957196304" />
+    <parent link="ladon_l" />
+    <child link="sharnir_palec_sred_l" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="proximal_falang_sred_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.19896908462991E-06 -0.000301615700045943 -0.02192176610875" />
+      <mass value="0.012705351647472" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_sred_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_sred_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falang_sred_l" type="continuous">
+    <origin rpy="1.44576702971441 1.49880108324396E-15 -3.14159265358979" xyz="0 0 0" />
+    <parent link="sharnir_palec_sred_l" />
+    <child link="proximal_falang_sred_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="medial_falanga_sred_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="6.55421300266301E-06 -0.00720218768868919 -0.00757327582143208" />
+      <mass value="0.00791977571324533" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_sred_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_sred_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_sred_l" type="continuous">
+    <origin rpy="-0.168799089471799 -2.08166817117217E-16 -2.4008572907519E-15" xyz="0 0.00623519009133176 -0.049609700709891" />
+    <parent link="proximal_falang_sred_l" />
+    <child link="medial_falanga_sred_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="distal_falanga_sred_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="3.92154984800164E-05 0.000417280307577456 -0.0118731914916414" />
+      <mass value="0.00792541876182252" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_sred_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_sred_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falanga_sred_l" type="continuous">
+    <origin rpy="0.352337356784202 -8.43075609324728E-16 3.60822483003176E-15" xyz="0 -0.00733223282733369 -0.0235748222811509" />
+    <parent link="medial_falanga_sred_l" />
+    <child link="distal_falanga_sred_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sharnir_palec_bezim_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000193153252624867 0.00288275214888389 0.000976445084956368" />
+      <mass value="0.00247996421674552" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_bezim_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_bezim_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_palec_bezim_l" type="continuous">
+    <origin rpy="-3.15848565820102E-15 -0.17792208122188 1.07162906260392E-15" xyz="-0.0136370172407264 0 -0.104499957196304" />
+    <parent link="ladon_l" />
+    <child link="sharnir_palec_bezim_l" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="proximal_falang_bezim_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.20126007613753E-06 -0.000231192200727648 -0.0219141722335413" />
+      <mass value="0.0127053660856527" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_bezim_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_bezim_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falang_bezim_l" type="continuous">
+    <origin rpy="1.48118139737993 3.12944115066216E-15 3.14159265358979" xyz="0 0 0" />
+    <parent link="sharnir_palec_bezim_l" />
+    <child link="proximal_falang_bezim_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="medial_falanga_bezim_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="6.55387797865448E-06 -0.0040883271557885 -0.00588271547003388" />
+      <mass value="0.0079197748552498" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_bezim_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_bezim_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_bezim_l" type="continuous">
+    <origin rpy="0.0730953468556514 1.78676518025611E-16 8.08381139805192E-16" xyz="0 0.00447475152211757 -0.0497993634378524" />
+    <parent link="proximal_falang_bezim_l" />
+    <child link="medial_falanga_bezim_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="distal_falanga_bezim_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="3.92159931133507E-05 0.000417278851463115 -0.0118731923164631" />
+      <mass value="0.00792541830844086" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_bezim_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_bezim_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falanga_bezim_l" type="continuous">
+    <origin rpy="0.0254511163823667 5.60315682740509E-15 -1.00613961606655E-16" xyz="0 -0.00421837181291146 -0.0218842624717602" />
+    <parent link="medial_falanga_bezim_l" />
+    <child link="distal_falanga_bezim_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sharnir_palec_miz_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000193153529855439 0.0028827515356693 0.000976444472905763" />
+      <mass value="0.0024799641227465" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_miz_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sharnir_palec_miz_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sharnir_palec_miz_l" type="continuous">
+    <origin rpy="-3.13426648924073E-15 -0.128002864932594 9.58469886218704E-16" xyz="-0.0376370172407265 0 -0.0984999571963043" />
+    <parent link="ladon_l" />
+    <child link="sharnir_palec_miz_l" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="proximal_falang_miz_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.21017766191845E-06 0.000121080198921486 -0.0219136529843224" />
+      <mass value="0.0127054066026706" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_miz_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/proximal_falang_miz_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_proximal_falang_miz_l" type="continuous">
+    <origin rpy="1.65754717564615 2.40779618465581E-15 -3.14159265358979" xyz="0 0 0" />
+    <parent link="sharnir_palec_miz_l" />
+    <child link="proximal_falang_miz_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="medial_falanga_miz_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="6.55394070286919E-06 0.00455425902413534 -0.00613189197253794" />
+      <mass value="0.00791977449147094" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_miz_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/medial_falanga_miz_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_medial_falanga_miz_l" type="continuous">
+    <origin rpy="-0.0139100620699392 9.43689570931383E-16 1.98452365651747E-15" xyz="0 -0.00433210397512132 -0.0498119752183021" />
+    <parent link="proximal_falang_miz_l" />
+    <child link="medial_falanga_miz_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="distal_falanga_miz_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="3.92154746994278E-05 0.000417278921219788 -0.0118731922589785" />
+      <mass value="0.00792541703381468" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_miz_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/distal_falanga_miz_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_distal_falanga_miz_l" type="continuous">
+    <origin rpy="0.0344454016102748 8.04911692853238E-16 -1.86656246015104E-15" xyz="0 0.00442421455290229 -0.0221334391077272" />
+    <parent link="medial_falanga_miz_l" />
+    <child link="distal_falanga_miz_l" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="sheya">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-1.38777878078145E-17 0.0357066801932042 5.55111512312578E-17" />
+      <mass value="0.218347766858865" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sheya.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/sheya.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_sheja" type="continuous">
+    <origin rpy="-3.38231325827026E-15 -0.174973769705534 7.1874156738243E-16" xyz="0 0.462945617536895 0" />
+    <parent link="Tors" />
+    <child link="sheya" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="golova">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-5.66003578992974E-05 0.0751250583774465 0.02507701782034" />
+      <mass value="34.4110690927022" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/golova.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/golova.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_golova" type="continuous">
+    <origin rpy="0.263818171846765 -7.7715611723761E-16 -2.77555756156289E-17" xyz="0 0.0670543824631131 0" />
+    <parent link="sheya" />
+    <child link="golova" />
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="shassi_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-1.72516190222183E-09 -2.98748831922824E-09 0.0391397938943969" />
+      <mass value="5.40678275175521" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/shassi_r.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/shassi_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_shassi_r" type="continuous">
+    <origin rpy="-1.48994964702924 -0.00319317350040304 1.61018644085026" xyz="-0.190978691828847 0.0257000413894612 -0.0262230889938952" />
+    <parent link="base_link" />
+    <child link="shassi_r" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="shassi_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-1.3000405314767E-08 -2.22754016621085E-09 0.0393520017268161" />
+      <mass value="5.40678275176403" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/shassi_l.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://rucobot/meshes/shassi_l.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="j_shassi_l" type="continuous">
+    <origin rpy="-1.65164300656056 0.00319317350040292 -1.53140621273954" xyz="0.181439187491373 0.0404737188099368 -0.0564211869800962" />
+    <parent link="base_link" />
+    <child link="shassi_l" />
+    <axis xyz="0 0 1" />
+  </joint>
+</robot>

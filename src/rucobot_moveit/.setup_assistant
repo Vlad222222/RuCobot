@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: rucobot
+    relative_path: urdf/rucobot.urdf
+  SRDF:
+    relative_path: config/rucobot.srdf
+  CONFIG:
+    author_name: VLAD
+    author_email: vlad2.vik@mail.ru
+    generated_timestamp: 1487606328
